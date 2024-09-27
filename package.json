@@ -1,11 +1,11 @@
 {
-  "name": "template",
+  "name": "@qingshaner/unocss-preset",
   "type": "module",
   "version": "0.0.0",
   "description": "a lib template for typescript",
   "author": {
     "name": "qingshaner",
-    "url": "https://github.com/Jon-a-than"
+    "url": "https://github.com/tsingshaner"
   },
   "license": "MIT",
   "exports": {
