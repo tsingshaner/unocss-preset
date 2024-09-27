@@ -1,0 +1,67 @@
+{
+  "name": "template",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "a lib template for typescript",
+  "author": {
+    "name": "qingshaner",
+    "url": "https://github.com/Jon-a-than"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "pnpm tsup --config=config/tsup.config.ts",
+    "changeset-version": "changeset version",
+    "changeset-publish": "pnpm build && changeset publish",
+    "format": "biome format . --write",
+    "lint": "biome lint . --write && eslint . --fix",
+    "prepare": "simple-git-hooks",
+    "test": "vitest run -c config/vitest.config.ts",
+    "test:cov": "vitest run --coverage -c config/vitest.config.ts",
+    "test:dev": "vitest -c config/vitest.config.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.2",
+    "@changesets/cli": "^2.27.8",
+    "@qingshaner/eslint-config": "^0.4.1",
+    "@types/node": "^22.7.3",
+    "@vitest/coverage-v8": "^2.1.1",
+    "eslint": "^9.11.1",
+    "lint-staged": "^15.2.10",
+    "simple-git-hooks": "^2.11.1",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "pre-push": "pnpm test"
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
+      "pnpm biome lint --write",
+      "pnpm eslint --cache --fix"
+    ],
+    "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "pnpm biome format --write"
+  }
+}
