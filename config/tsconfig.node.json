@@ -11,5 +11,5 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["vitest.config.*", "tsup.config.*"]
+  "include": ["vitest.config.*", "tsup.config.*", "../*.config.*", "../src", "../test"]
 }

@@ -9,5 +9,6 @@ export default presetESLintConfig({
   ignores: [resolve(ROOT, '.gitignore'), ['pnpm-lock.yaml']],
   jsonc: true,
   perfectionist: true,
+  prettier: true,
   typescript: [ROOT]
 })
